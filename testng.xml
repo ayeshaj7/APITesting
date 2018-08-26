@@ -7,7 +7,7 @@
   	<parameter name="PromotionName" value="Gallery" />
   	<parameter name="PromotionDescription" value="2x larger image" />
     <classes>
-       <class name="API.ValidateAPIOutput"/>
+       <class name="API.ValidateAPIOutput" />
     </classes>
   </test> <!-- ValidateAPIOutput -->
 </suite> <!-- ValidateAPITestSuite -->

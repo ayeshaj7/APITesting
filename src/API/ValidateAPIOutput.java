@@ -7,6 +7,7 @@ public class ValidateAPIOutput {
 
 	private ConvertToJavaObject convertToJavaObject;
 	
+	//This initiates the set up of instance of ConvertToJavaObject class to use for all 3 test cases
 	@BeforeClass
     public void setup(){
 		convertToJavaObject = new ConvertToJavaObject();

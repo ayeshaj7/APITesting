@@ -29,11 +29,10 @@ public class ConvertToJavaObject {
 			Scanner scan = new Scanner(url.openStream());
 			String entireResponse = new String();
 			while (scan.hasNext())
-				entireResponse += scan.nextLine();
-							
+				entireResponse += scan.nextLine();					
 				scan.close();
-				
 				conn.disconnect();
+				
 			return entireResponse;
 		} catch (MalformedURLException e) {
 			e.printStackTrace();	
