@@ -12,7 +12,7 @@ import org.json.JSONObject;
 public class ConvertToJavaObject {
 
 	//Create a Json object to access the content of the API output
-	private String JsonOutput() throws Exception {
+	private String getJsonOutput() throws Exception {
 		try {
 			URL url = new URL("https://api.tmsandbox.co.nz/v1/Categories/6327/Details.json?catalogue=false;");
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -44,9 +44,9 @@ public class ConvertToJavaObject {
 	}
 	
 	//Read the value of the Name parameter and returns the corresponding value as a string value
-	public String GetName() throws Exception {	
+	public String getName() throws Exception {	
 		try {
-			JSONObject obj = new JSONObject(JsonOutput());
+			JSONObject obj = new JSONObject(getJsonOutput());
 			String name = obj.getString("Name");
 			
 			return name;
@@ -58,9 +58,9 @@ public class ConvertToJavaObject {
 	
 	//Read the value of the CanRelist parameter and returns the corresponding value as a boolean value
 	@SuppressWarnings("null")
-	public boolean GetCanRelist() throws Exception {	
+	public boolean getCanRelist() throws Exception {	
 		try {
-			JSONObject obj = new JSONObject(JsonOutput());			
+			JSONObject obj = new JSONObject(getJsonOutput());			
 			boolean canRelist = obj.getBoolean("CanRelist");
 			
 			return canRelist;
@@ -70,10 +70,10 @@ public class ConvertToJavaObject {
 		return (Boolean) null;
 	}
 	
-	//Read the value of the Name and description parameters under promotions section and returns an integer flag when both are matching
-	public int GetPromotions() throws Exception {			
+	//Read the value of the Name and description parameters under promotions section and returns an integer flag
+	public int getPromotions(String PromotionName, String PromotionDescription) throws Exception {			
 		try {
-			JSONObject obj = new JSONObject(JsonOutput());							
+			JSONObject obj = new JSONObject(getJsonOutput());							
 			JSONArray promotionArray = obj.getJSONArray("Promotions");
 			
 			int matchingCount=0;
@@ -85,7 +85,7 @@ public class ConvertToJavaObject {
 				
 				//Validate whether the promotion name is matching as per requirement
 				//Validate the description contains the string value after removing the newlines
-				if (promotionName.equalsIgnoreCase("Gallery") && description.split("\\R")[1].contains("2x larger image")) 
+				if (promotionName.equalsIgnoreCase(PromotionName) && description.split("\\R")[1].contains(PromotionDescription)) 
 				{
 					matchingCount=matchingCount+1;
 				}

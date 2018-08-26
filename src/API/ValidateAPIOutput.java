@@ -1,19 +1,26 @@
 package API;
 
-import org.junit.Assert;
-import org.junit.jupiter.api.Test;
+import org.testng.Assert;
+import org.testng.annotations.*;
 
 public class ValidateAPIOutput {
 
+	private ConvertToJavaObject convertToJavaObject;
+	
+	@BeforeClass
+    public void setup(){
+		convertToJavaObject = new ConvertToJavaObject();
+    }
+	
 	//Validate whether the first acceptance criteria of name is matched properly
 	@Test
-	void ValidateName() {	
+	@Parameters(value= {"FullName"})
+	public void validateName(String FullName) {	
 		try{
-			ConvertToJavaObject obj= new ConvertToJavaObject();
-			String output=obj.GetName();
+			String output=convertToJavaObject.getName();
 			
 			System.out.println(output);
-			Assert.assertEquals("Name is not set as expected.", "Carbon credits", output);
+			Assert.assertEquals(output, FullName, "Name is not set as expected.");
 			
 		}catch (Exception e) {		
 			e.printStackTrace();}
@@ -21,13 +28,13 @@ public class ValidateAPIOutput {
 	
 	//Validate whether the second acceptance criteria of CanRelist is matched properly
 	@Test
-	void ValidateCanRelist() {	
+	@Parameters(value= {"CanRelist"})
+	void validateCanRelist(boolean CanRelist) {	
 		try{
-			ConvertToJavaObject obj= new ConvertToJavaObject();
-			boolean output=obj.GetCanRelist();	
+			boolean output=convertToJavaObject.getCanRelist();	
 			
 			System.out.println(output);
-			Assert.assertEquals("Can Relist is not set as expected.", true, output);
+			Assert.assertEquals(output, CanRelist, "Can Relist is not set as expected.");
 			
 		}catch (Exception e) {		
 			e.printStackTrace();}
@@ -35,13 +42,13 @@ public class ValidateAPIOutput {
 	
 	//Validate whether the third acceptance criteria of promotion name is matched properly and description contains the string value
 	@Test
-	void ValidatePromotions() {	
+	@Parameters(value= {"PromotionName", "PromotionDescription"})
+	void validatePromotions(String PromotionName, String PromotionDescription) {	
 		try{
-			ConvertToJavaObject obj= new ConvertToJavaObject();
-			int output= obj.GetPromotions();
+			int output= convertToJavaObject.getPromotions(PromotionName, PromotionDescription);
 			
 			System.out.println(output);
-			Assert.assertEquals("Promotion Name related to correct discription is not found.",1, output);
+			Assert.assertEquals(output, 1,"Promotion Name related to correct description is not found.");
 			
 		}catch (Exception e) {		
 			e.printStackTrace();}
