@@ -11,7 +11,11 @@ import org.json.JSONObject;
 
 public class ConvertToJavaObject {
 
-	//Create a Json object to access the content of the API output
+	/**
+	 * Create a Json object to access the content of the API output
+	 * @return
+	 * @throws Exception
+	 */
 	private String getJsonOutput() throws Exception {
 		try {
 			URL url = new URL(Messages.getString("ConvertToJavaObject.0")); 
@@ -42,7 +46,11 @@ public class ConvertToJavaObject {
 		return null;	
 	}
 	
-	//Read the value of the Name parameter and returns the corresponding value as a string value
+	/**
+	 * Read the value of the Name parameter and returns the corresponding value as a string value
+	 * @return
+	 * @throws Exception
+	 */
 	public String getName() throws Exception {	
 		try {
 			JSONObject obj = new JSONObject(getJsonOutput());
@@ -55,7 +63,11 @@ public class ConvertToJavaObject {
 		return null;
 	}
 	
-	//Read the value of the CanRelist parameter and returns the corresponding value as a boolean value
+	/**
+	 * Read the value of the CanRelist parameter and returns the corresponding value as a boolean value
+	 * @return
+	 * @throws Exception
+	 */
 	@SuppressWarnings("null")
 	public boolean getCanRelist() throws Exception {	
 		try {
@@ -69,7 +81,13 @@ public class ConvertToJavaObject {
 		return (Boolean) null;
 	}
 	
-	//Read the value of the Name and description parameters under promotions section and returns an integer flag
+	/**
+	 * Read the value of the Name and description parameters under promotions section and returns an integer flag
+	 * @param PromotionName
+	 * @param PromotionDescription
+	 * @return
+	 * @throws Exception
+	 */
 	public int getPromotions(String PromotionName, String PromotionDescription) throws Exception {			
 		try {
 			JSONObject obj = new JSONObject(getJsonOutput());							
