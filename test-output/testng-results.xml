@@ -2,16 +2,16 @@
 <testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
   <reporter-output>
   </reporter-output>
-  <suite name="ValidateAPITestSuite" duration-ms="1504" started-at="2018-08-26T14:18:19Z" finished-at="2018-08-26T14:18:21Z">
+  <suite name="ValidateAPITestSuite" duration-ms="2101" started-at="2018-08-27T10:07:19Z" finished-at="2018-08-27T10:07:21Z">
     <groups>
     </groups>
-    <test name="ValidateAPIOutput" duration-ms="1504" started-at="2018-08-26T14:18:19Z" finished-at="2018-08-26T14:18:21Z">
+    <test name="ValidateAPIOutput" duration-ms="2101" started-at="2018-08-27T10:07:19Z" finished-at="2018-08-27T10:07:21Z">
       <class name="API.ValidateAPIOutput">
-        <test-method status="PASS" signature="setup()[pri:0, instance:API.ValidateAPIOutput@62ee68d8]" name="setup" is-config="true" duration-ms="26" started-at="2018-08-26T14:18:19Z" finished-at="2018-08-26T14:18:19Z">
+        <test-method status="PASS" signature="setup()[pri:0, instance:API.ValidateAPIOutput@62ee68d8]" name="setup" is-config="true" duration-ms="26" started-at="2018-08-27T10:07:19Z" finished-at="2018-08-27T10:07:19Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="validateCanRelist(boolean)[pri:0, instance:API.ValidateAPIOutput@62ee68d8]" name="validateCanRelist" duration-ms="1092" started-at="2018-08-26T14:18:19Z" finished-at="2018-08-26T14:18:20Z">
+        <test-method status="PASS" signature="validateCanRelist(boolean)[pri:0, instance:API.ValidateAPIOutput@62ee68d8]" name="validateCanRelist" duration-ms="1208" started-at="2018-08-27T10:07:19Z" finished-at="2018-08-27T10:07:20Z">
           <params>
             <param index="0">
               <value>
@@ -22,7 +22,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validateCanRelist -->
-        <test-method status="PASS" signature="validateName(java.lang.String)[pri:0, instance:API.ValidateAPIOutput@62ee68d8]" name="validateName" duration-ms="144" started-at="2018-08-26T14:18:20Z" finished-at="2018-08-26T14:18:20Z">
+        <test-method status="PASS" signature="validateName(java.lang.String)[pri:0, instance:API.ValidateAPIOutput@62ee68d8]" name="validateName" duration-ms="164" started-at="2018-08-27T10:07:20Z" finished-at="2018-08-27T10:07:21Z">
           <params>
             <param index="0">
               <value>
@@ -33,7 +33,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validateName -->
-        <test-method status="PASS" signature="validatePromotions(java.lang.String, java.lang.String)[pri:0, instance:API.ValidateAPIOutput@62ee68d8]" name="validatePromotions" duration-ms="160" started-at="2018-08-26T14:18:20Z" finished-at="2018-08-26T14:18:21Z">
+        <test-method status="PASS" signature="validatePromotions(java.lang.String, java.lang.String)[pri:0, instance:API.ValidateAPIOutput@62ee68d8]" name="validatePromotions" duration-ms="596" started-at="2018-08-27T10:07:21Z" finished-at="2018-08-27T10:07:21Z">
           <params>
             <param index="0">
               <value>
