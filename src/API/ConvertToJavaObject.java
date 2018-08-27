@@ -14,15 +14,15 @@ public class ConvertToJavaObject {
 	//Create a Json object to access the content of the API output
 	private String getJsonOutput() throws Exception {
 		try {
-			URL url = new URL("https://api.tmsandbox.co.nz/v1/Categories/6327/Details.json?catalogue=false;");
+			URL url = new URL(Messages.getString("ConvertToJavaObject.0")); 
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-			conn.setRequestMethod("GET");
+			conn.setRequestMethod("GET"); 
 			conn.setRequestProperty("Accept", "application/json");
 			
 			//Validate whether API output returns a success code
 			if (conn.getResponseCode() != 200) 
 			{
-				throw new RuntimeException(" HTTP error code : " + conn.getResponseCode());
+				throw new RuntimeException(" HTTP error code : " + conn.getResponseCode()); 
 			}
 			
 			//Reads the API output and store in a string
@@ -46,7 +46,7 @@ public class ConvertToJavaObject {
 	public String getName() throws Exception {	
 		try {
 			JSONObject obj = new JSONObject(getJsonOutput());
-			String name = obj.getString("Name");
+			String name = obj.getString("Name"); 
 			
 			return name;
 
@@ -60,7 +60,7 @@ public class ConvertToJavaObject {
 	public boolean getCanRelist() throws Exception {	
 		try {
 			JSONObject obj = new JSONObject(getJsonOutput());			
-			boolean canRelist = obj.getBoolean("CanRelist");
+			boolean canRelist = obj.getBoolean("CanRelist"); 
 			
 			return canRelist;
 
@@ -73,18 +73,18 @@ public class ConvertToJavaObject {
 	public int getPromotions(String PromotionName, String PromotionDescription) throws Exception {			
 		try {
 			JSONObject obj = new JSONObject(getJsonOutput());							
-			JSONArray promotionArray = obj.getJSONArray("Promotions");
+			JSONArray promotionArray = obj.getJSONArray("Promotions"); 
 			
 			int matchingCount=0;
 			
 			//Loop through the promotions to validate the promotion name and description
 			for (int i = 0; i < promotionArray.length(); i++) {
-				String promotionName = promotionArray.getJSONObject(i).getString("Name");
-				String description = promotionArray.getJSONObject(i).getString("Description");	
+				String promotionName = promotionArray.getJSONObject(i).getString("Name"); 
+				String description = promotionArray.getJSONObject(i).getString("Description");	 
 				
 				//Validate whether the promotion name is matching as per requirement
 				//Validate the description contains the string value after removing the newlines
-				if (promotionName.equalsIgnoreCase(PromotionName) && description.split("\\R")[1].contains(PromotionDescription)) 
+				if (promotionName!=null && description!=null && promotionName.equalsIgnoreCase(PromotionName) && description.split("\\R")[1].contains(PromotionDescription))
 				{
 					matchingCount=matchingCount+1;
 				}

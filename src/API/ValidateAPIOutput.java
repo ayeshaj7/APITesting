@@ -1,7 +1,9 @@
 package API;
 
 import org.testng.Assert;
-import org.testng.annotations.*;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
 
 public class ValidateAPIOutput {
 
@@ -35,7 +37,7 @@ public class ValidateAPIOutput {
 			boolean output=convertToJavaObject.getCanRelist();	
 			
 			System.out.println(output);
-			Assert.assertEquals(output, CanRelist, "Can Relist is not set as expected.");
+			Assert.assertTrue(output=CanRelist, "Can Relist is not set as expected.");
 			
 		}catch (Exception e) {		
 			e.printStackTrace();}
